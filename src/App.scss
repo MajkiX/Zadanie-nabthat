@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+$PrimaryColor: rgb(42, 45, 54);
+$HeaderColor: rgb(11, 12, 16);
+$FooterColor: rgb(21, 22, 26);
+$TextColor: rgb(221, 225, 225);
+$HoverColor: rgb(252, 156, 32);
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 15% 70% 15%;
+  overflow: hidden;
+  color: $TextColor;
+  font-family: "Open Sans";
+  font-weight: 400;
+
+  .bold {
+    font-weight: 800;
+  }
+
+}
+
+.main {
+  background-color: $PrimaryColor;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 20% 80%;
+  justify-items: center;
+
+  &_h2 {
+    font-size: 26px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 8vmin;
+  }
+
+  .inputs {
+    font-weight: 300;
+    line-height: 6vmin;
+
+    input {
+      scale: 3;
+    }
+
+    label {
+      font-size: 24px;
+      margin-left: 3vw;
+    }
+  }
+
+
+
+  &_h1 {
+    font-size: 48px;
+    font-weight: 400;
+    grid-area: 1 / 1 / 2 / 5;
+    place-self: center center;
+  }
+
+  .text_box {
+    overflow: hidden;
+
+    &_h2 {
+      white-space: nowrap;
+      width: 33vmax;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .text_container {
+      text-align: center;
+      font-weight: 200;
+      padding: 0 10%;
+    }
+  }
+
+  .action_btns {
+    &_box {
+      display: flex;
+      gap: 2vw;
+
+      button {
+        width: 8vmax;
+        height: 4vh;
+        transition: .5s;
+        color: $TextColor;
+        border: 1px solid $TextColor;
+        border-radius: 2px;
+        background-color: $PrimaryColor;
+
+        &:hover {
+          background-color: $HoverColor;
+        }
+      }
+    }
+  }
+
+
+
+  .menu {
+    position: absolute;
+    bottom: 0;
+    right: 2vw;
+    width: 15vmax;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 8px -3px 24px 0px $FooterColor;
+
+    button {
+      width: 15vmax;
+      height: 4vh;
+      outline: none;
+      box-shadow: none;
+      border: none;
+      font-weight: bold;
+
+      &:hover {
+        color: $HoverColor;
+      }
+    }
+  }
+}
+
+.headerBox {
+  background-color: $HeaderColor;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 34px;
+
+  .logo {
+    border-radius: 100%;
+    width: 100px;
+    aspect-ratio: 1/1;
+    background-color: $PrimaryColor;
+    margin: auto 0;
+    margin-left: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+
+    &:hover {
+      background-color: $HoverColor;
+
+      img {
+        scale: 1.1;
+      }
+    }
+
+    img {
+      width: 65px;
+      height: 65px;
+      transition: .5s;
+    }
+  }
+
+  .nameBox {
+    place-self: center right;
+    margin-right: 2vw;
+    text-align: end;
+  }
+}
+
+.footerBox {
+  background-color: $FooterColor;
+  border-top: 1px solid $HeaderColor;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  z-index: 10;
+
+
+
+  .css_is_awesome {
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+
+    &:hover {
+      .css_is_awesome_box {
+        border-color: $HoverColor;
+        transform: rotateZ(90deg);
+      }
+    }
+
+    &_box {
+      width: 90px;
+      aspect-ratio: 1/1;
+      border: 2px solid $PrimaryColor;
+      transition: .5s;
+    }
+
+    &_text {
+      font-size: 22px;
+      transform: translateX(-80%);
+    }
+  }
+
+
+
+  .show_box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+
+    &_btn {
+      margin-right: 2vw;
+      width: 15vmax;
+      height: 6vh;
+      background-color: $FooterColor;
+      border: 1px solid $PrimaryColor;
+      color: $TextColor;
+
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .headerBox {
+    .nameBox {
+      font-size: 18px;
+    }
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    &_h1 {
+      grid-area: 1 / 1 / 2 / 3;
+      font-size: 38px;
+      margin-bottom: 2vmin;
+    }
+
+    &_h2 {
+      margin-bottom: 4vmin;
+      font-size: 22px;
+    }
+
+    .radio_btns {
+      grid-area: 2 / 1 / 3 / 2;
+      width: 100%;
+      margin-left: 3vmax;
+
+      &_h2 {
+        text-align: start;
+      }
+
+      .inputs {
+        input {
+          scale: 2;
+        }
+
+        label {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .action_btns {
+      grid-area: 2 / 2 / 3 / 3;
+      width: 100%;
+      margin-right: 3vmax;
+
+      &_box {
+        flex-direction: column;
+        align-items: end;
+
+
+        button {
+          width: 20vmax;
+        }
+      }
+
+      &_h2 {
+        text-align: right;
+      }
+    }
+
+    .text_box {
+      width: 100%;
+      grid-area: 3 / 1 / 5 / 3;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      &_h2 {
+        width: 80%;
+
+      }
+    }
+  }
+}
